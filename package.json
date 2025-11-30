@@ -1,8 +1,4 @@
 {
-  "name": "linker",
-  "version": "1.0.0",
-  "description": "Cross-server battle linker for Paradih",
-  "main": "dist/index.js",
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
