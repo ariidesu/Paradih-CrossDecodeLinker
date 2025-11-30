@@ -91,6 +91,10 @@ function connectToServer(battleSocketUrl: string) {
     socket.on("error", (error: Error) => {
         console.error(`WebSocket error for ${battleSocketUrl}:`, error.message);
     });
+
+    socket.on("ping", () => {
+        socket.pong();
+    });
 }
 
 function handleServerMessage(serverSocket: WebSocket, message: ServerForwardMessage) {
