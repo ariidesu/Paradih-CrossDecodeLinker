@@ -39,10 +39,10 @@ export interface PlayerInfo {
 export type ServerForwardMessage = {
     linker: true;
     playerId: string;
+    message: ClientMessage;
     playerInfo?: PlayerInfo;
     playResult?: PlayResultData;
-    data: any; // The original message data
-} & ClientBaseMessage;
+};
 
 export type ClientBaseMessage = BaseMessage & { timestamp: number }
 
@@ -100,7 +100,8 @@ export type ClientMessage = ClientHeartbeatMessage | ClientStartMatchMessage | C
 export type LinkerToServerMessage = {
     linker: true;
     targetPlayerId: string;
-} & ServerBaseMessage;
+    message: ServerMessage;
+}
 
 export type ServerBaseMessage = BaseMessage & { status: "ok" | "fail" }
 

@@ -56,25 +56,25 @@ app.register(async function (fastify) {
     });
 });
 
-function handleClientMessage(clientSocket: WebSocket, message: ServerForwardMessage) {
-    const { playerId, action, playerInfo, playResult, data } = message;
+function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwardMessage) {
+    const { playerId, playerInfo, playResult, message } = clientMessage;
     const players = clientPlayers.get(clientSocket);
     if (players) {
         players.add(playerId);
     }
     const room = manager.getRoomByPlayerId(playerId);
-    if (!room && !["startMatch", "cancelGame"].includes(action)) {
+    if (!room && !["startMatch", "cancelGame"].includes(message.action)) {
         return;
     }
 
-    switch (action) {
+    switch (message.action) {
         case "startMatch": {
             if (!playerInfo) {
                 console.error(`startMatch without playerInfo for ${playerId}`);
                 return;
             }
             const player = new ServerPlayer(clientSocket, playerInfo);
-            player.level = data.playerLevel;
+            player.level = message.data.playerLevel;
             manager.addPlayer(player);
             break;
         }
@@ -84,7 +84,7 @@ function handleClientMessage(clientSocket: WebSocket, message: ServerForwardMess
             break;
         }
         case "banChart": {
-            room!.onPlayerSetBan(playerId, { action: "banChart", data, timestamp: message.timestamp } as ClientBanChartMessage);
+            room!.onPlayerSetBan(playerId, message);
             break;
         }
         case "playerReady": {
@@ -93,16 +93,12 @@ function handleClientMessage(clientSocket: WebSocket, message: ServerForwardMess
         }
 
         case "updateScore": {
-            room!.onPlayerUpdateScore(playerId, { action: "updateScore", data, timestamp: message.timestamp } as ClientUpdateScoreMessage);
+            room!.onPlayerUpdateScore(playerId, message);
             break;
         }
 
         case "donePlaying": {
-            room!.onPlayerDonePlaying(
-                playerId,
-                { action: "donePlaying", data, timestamp: message.timestamp } as ClientDonePlayingMessage,
-                playResult as PlayResultData | undefined
-            );
+            room!.onPlayerDonePlaying(playerId, message, playResult);
             break;
         }
 

@@ -34,7 +34,7 @@ export class ServerPlayer {
     sendMessage(message: ServerMessage) {
         if (this.serverSocket.readyState === WebSocket.OPEN) {
             const linkerMessage: LinkerToServerMessage = {
-                ...message,
+                message,
                 linker: true,
                 targetPlayerId: this.id
             };
