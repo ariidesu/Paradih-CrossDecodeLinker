@@ -378,10 +378,10 @@ export class Room {
 export class RoomsManager {
     private waitingQueue: ServerPlayer[] = [];
     private rooms = new Map<string, Room>();
-    private playerToRoomMap = new Map<string, string>();
+    private playerToRoomMap = new Map<ServerPlayer, string>();
 
     public addPlayer(player: ServerPlayer) {
-        if (this.playerToRoomMap.has(player.id) || this.waitingQueue.some(p => p.id === player.id)) {
+        if (this.getPlayerByIdAndSocket(player.id, player.serverSocket) || this.waitingQueue.some(p => p.id === player.id && p.serverSocket === player.serverSocket)) {
             return;
         }
 
@@ -390,28 +390,39 @@ export class RoomsManager {
         this.createRoom();
     }
 
+    private getPlayerByIdAndSocket(playerId: string, serverSocket: WebSocket): ServerPlayer | undefined {
+        for (const [player, _] of this.playerToRoomMap) {
+            if (player.id === playerId && player.serverSocket === serverSocket) {
+                return player;
+            }
+        }
+        return undefined;
+    }
+
     private createRoom() {
         if (this.waitingQueue.length >= 2) {
             const [player1, player2] = this.waitingQueue.splice(0, 2);
             const room = new Room([player1, player2], () => {
                 // Cleanup callback
-                room.players.forEach(p => this.playerToRoomMap.delete(p.id));
+                room.players.forEach(p => this.playerToRoomMap.delete(p));
                 this.rooms.delete(room.id);
             });
 
             this.rooms.set(room.id, room);
-            this.playerToRoomMap.set(player1.id, room.id);
-            this.playerToRoomMap.set(player2.id, room.id);
+            this.playerToRoomMap.set(player1, room.id);
+            this.playerToRoomMap.set(player2, room.id);
         }
     }
 
-    public getRoomByPlayerId(playerId: string): Room | undefined {
-        const roomId = this.playerToRoomMap.get(playerId);
+    public getRoomByPlayerId(playerId: string, serverSocket: WebSocket): Room | undefined {
+        const player = this.getPlayerByIdAndSocket(playerId, serverSocket);
+        if (!player) return undefined;
+        const roomId = this.playerToRoomMap.get(player);
         return roomId ? this.rooms.get(roomId) : undefined;
     }
 
-    public removeFromQueue(playerId: string) {
-        const queueIndex = this.waitingQueue.findIndex(p => p.id === playerId);
+    public removeFromQueue(playerId: string, serverSocket: WebSocket) {
+        const queueIndex = this.waitingQueue.findIndex(p => p.id === playerId && p.serverSocket === serverSocket);
         if (queueIndex !== -1) {
             const player = this.waitingQueue[queueIndex];
             this.waitingQueue.splice(queueIndex, 1);
@@ -419,10 +430,10 @@ export class RoomsManager {
         }
     }
 
-    public removePlayer(playerId: string) {
-        this.removeFromQueue(playerId);
+    public removePlayer(playerId: string, serverSocket: WebSocket) {
+        this.removeFromQueue(playerId, serverSocket);
 
-        const room = this.getRoomByPlayerId(playerId);
+        const room = this.getRoomByPlayerId(playerId, serverSocket);
         if (room) {
             room.onPlayerDisconnect(playerId);
         }
@@ -432,7 +443,7 @@ export class RoomsManager {
         console.log("Server disconnected, forfeiting all players from that server");
 
         const playersToRemove = this.waitingQueue.filter(p => p.serverSocket === serverSocket);
-        playersToRemove.forEach(p => this.removeFromQueue(p.id));
+        playersToRemove.forEach(p => this.removeFromQueue(p.id, serverSocket));
 
         for (const room of this.rooms.values()) {
             for (const player of room.players) {
