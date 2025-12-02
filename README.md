@@ -28,7 +28,7 @@ CROSS_DECODE_LINKER_TOKEN=your_secure_token_here
 |----------|-------------|
 | `CROSS_DECODE_USE_LINKER` | Set to `true` to enable linker connection |
 | `CROSS_DECODE_LINKER_URL` | The HTTP URL of the linker service |
-| `CROSS_DECODE_LINKER_TOKEN` | Authentication token (must match linker's `LINKER_TOKEN`) |with the path `/linker_ws` |
+| `CROSS_DECODE_LINKER_TOKEN` | Authentication token (must match linker's `LINKER_TOKEN`) |
 
 ## Other Server Implementations
 
