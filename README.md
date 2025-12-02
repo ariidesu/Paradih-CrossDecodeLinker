@@ -18,7 +18,6 @@ To connect your Paradih server to the linker, add the following environment vari
 CROSS_DECODE_USE_LINKER=true
 CROSS_DECODE_LINKER_URL=http://localhost:5307
 CROSS_DECODE_LINKER_TOKEN=your_secure_token_here
-CROSS_DECODE_LINKER_CONNECT_URL=wss://battle.example.com/linker_ws
 ```
 
 (As of writing this, this feature is not in the main branch, you must be in branch experimental/cross-decode-linking)
@@ -29,8 +28,7 @@ CROSS_DECODE_LINKER_CONNECT_URL=wss://battle.example.com/linker_ws
 |----------|-------------|
 | `CROSS_DECODE_USE_LINKER` | Set to `true` to enable linker connection |
 | `CROSS_DECODE_LINKER_URL` | The HTTP URL of the linker service |
-| `CROSS_DECODE_LINKER_TOKEN` | Authentication token (must match linker's `LINKER_TOKEN`) |
-| `CROSS_DECODE_LINKER_CONNECT_URL` | Your server's WebSocket URL for the linker to connect back to. This is typically your battle WebSocket endpoint with the path `/linker_ws` |
+| `CROSS_DECODE_LINKER_TOKEN` | Authentication token (must match linker's `LINKER_TOKEN`) |with the path `/linker_ws` |
 
 ## Other Server Implementations
 
