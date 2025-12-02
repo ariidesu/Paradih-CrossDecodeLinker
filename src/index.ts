@@ -1,5 +1,6 @@
 import WebSocket, { RawData } from "ws";
 import fastify from "fastify";
+import websocket from "@fastify/websocket";
 import config from "./config";
 import { RoomsManager, ServerPlayer } from "./manager";
 import {
@@ -13,93 +14,51 @@ import {
 const app = fastify({ logger: true });
 const manager = new RoomsManager();
 
-const connectedServers = new Map<string, WebSocket>();
-const socketToUrl = new Map<WebSocket, string>();
-const serverPlayers = new Map<WebSocket, Set<string>>();
+const connectedClients = new Set<WebSocket>();
+const clientPlayers = new Map<WebSocket, Set<string>>();
 
-app.post("/", async (request, reply) => {
-    const authHeader = request.headers.authorization;
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        return reply.status(401).send({ error: "Missing or invalid authorization header" });
-    }
+app.register(websocket);
 
-    const token = authHeader.slice(7);
-    if (token !== config.LINKER_TOKEN) {
-        return reply.status(401).send({ error: "Invalid token" });
-    }
+app.register(async function (fastify) {
+    fastify.get("/", { websocket: true }, (socket, req) => {
+        const authToken = req.headers["auth-token"];
 
-    const { battleSocketUrl } = request.body as { battleSocketUrl?: string };
-    if (!battleSocketUrl) {
-        return reply.status(400).send({ error: "Missing battleSocketUrl" });
-    }
+        if (!authToken || authToken != config.LINKER_TOKEN) {
+            socket.close(1008);
+            return;
+        }
 
-    if (connectedServers.has(battleSocketUrl)) {
-        return reply.status(200).send({ status: "ok" });
-    }
+        console.log("New client connected");
+        connectedClients.add(socket);
+        clientPlayers.set(socket, new Set());
 
-    connectToServer(battleSocketUrl);
-    return reply.status(200).send({ status: "ok" });
+        socket.on("message", (data: RawData) => {
+            try {
+                const message = JSON.parse(data.toString());
+                if (message.linker && message.playerId) {
+                    handleClientMessage(socket, message as ServerForwardMessage);
+                }
+            } catch (error) {
+                console.error("Error parsing message:", error);
+            }
+        });
+
+        socket.on("close", () => {
+            console.log("Client disconnected");
+            manager.onServerDisconnect(socket);
+            connectedClients.delete(socket);
+            clientPlayers.delete(socket);
+        });
+
+        socket.on("error", (error: Error) => {
+            console.error("WebSocket error:", error.message);
+        });
+    });
 });
 
-function connectToServer(battleSocketUrl: string) {
-    console.log(`Connecting to ${battleSocketUrl}`);
-
-    const socket = new WebSocket(battleSocketUrl);
-
-    socket.on("open", () => {
-        console.log(`Connected to ${battleSocketUrl}`);
-        socket.send(JSON.stringify({
-            linker: true,
-            action: "identify",
-            token: config.LINKER_TOKEN
-        }));
-    });
-
-    socket.on("message", (data: RawData) => {
-        try {
-            const message = JSON.parse(data.toString());
-            if (message.status === "ok" && message.action === "identified") {
-                connectedServers.set(battleSocketUrl, socket);
-                socketToUrl.set(socket, battleSocketUrl);
-                serverPlayers.set(socket, new Set());
-                console.log(`Authenticated with ${battleSocketUrl}`);
-                return;
-            }
-            if (message.linker && message.playerId) {
-                handleServerMessage(socket, message as ServerForwardMessage);
-            }
-        } catch (error) {
-            console.error("Error parsing message:", error);
-        }
-    });
-
-    socket.on("close", () => {
-        console.log(`Disconnected from ${battleSocketUrl}`);
-        manager.onServerDisconnect(socket);
-        
-        connectedServers.delete(battleSocketUrl);
-        serverPlayers.delete(socket);
-
-        // Reconnect after 1 second
-        setTimeout(() => {
-            if (!connectedServers.has(battleSocketUrl)) {
-                connectToServer(battleSocketUrl);
-            }
-        }, 1000);
-    });
-
-    socket.on("error", (error: Error) => {
-        console.error(`WebSocket error for ${battleSocketUrl}:`, error.message);
-    });
-
-    socket.on("ping", () => {
-        socket.pong();
-    });
-}
-
-function handleServerMessage(serverSocket: WebSocket, message: ServerForwardMessage) {
+function handleClientMessage(clientSocket: WebSocket, message: ServerForwardMessage) {
     const { playerId, action, playerInfo, playResult, data } = message;
-    const players = serverPlayers.get(serverSocket);
+    const players = clientPlayers.get(clientSocket);
     if (players) {
         players.add(playerId);
     }
@@ -114,7 +73,7 @@ function handleServerMessage(serverSocket: WebSocket, message: ServerForwardMess
                 console.error(`startMatch without playerInfo for ${playerId}`);
                 return;
             }
-            const player = new ServerPlayer(serverSocket, playerInfo);
+            const player = new ServerPlayer(clientSocket, playerInfo);
             player.level = data.playerLevel;
             manager.addPlayer(player);
             break;
