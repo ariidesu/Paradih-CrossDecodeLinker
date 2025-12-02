@@ -58,6 +58,11 @@ app.register(async function (fastify) {
 
 function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwardMessage) {
     const { playerInfo, playResult, message } = clientMessage;
+    if (!playerInfo) {
+        console.error("Missing playerInfo in message, client message:", JSON.stringify(clientMessage));
+        clientSocket.send(JSON.stringify({ type: "linkerError", error: "Missing playerInfo" }));
+        return;
+    }
     const players = clientPlayers.get(clientSocket);
     if (players) {
         players.add(playerInfo.id);
@@ -65,10 +70,6 @@ function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwa
     const room = manager.getRoomByPlayerId(playerInfo.id, clientSocket);
     if (!room && !["startMatch", "cancelGame"].includes(message.action)) {
         clientSocket.send(JSON.stringify({ type: "linkerError", error: "Player is not in a room" }));
-        return;
-    }
-    if (!playerInfo) {
-        clientSocket.send(JSON.stringify({ type: "linkerError", error: "Missing playerInfo" }));
         return;
     }
 
