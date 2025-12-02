@@ -1,5 +1,4 @@
 export type BaseMessage = {
-    linker?: boolean;
     action: string;
     nonce?: string;
 }
@@ -38,9 +37,8 @@ export interface PlayerInfo {
 
 export type ServerForwardMessage = {
     linker: true;
-    playerId: string;
     message: ClientMessage;
-    playerInfo?: PlayerInfo;
+    playerInfo: PlayerInfo;
     playResult?: PlayResultData;
 };
 

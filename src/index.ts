@@ -35,7 +35,7 @@ app.register(async function (fastify) {
         socket.on("message", (data: RawData) => {
             try {
                 const message = JSON.parse(data.toString());
-                if (message.linker && message.playerId) {
+                if (message.linker) {
                     handleClientMessage(socket, message as ServerForwardMessage);
                 }
             } catch (error) {
@@ -57,54 +57,55 @@ app.register(async function (fastify) {
 });
 
 function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwardMessage) {
-    const { playerId, playerInfo, playResult, message } = clientMessage;
+    const { playerInfo, playResult, message } = clientMessage;
     const players = clientPlayers.get(clientSocket);
     if (players) {
-        players.add(playerId);
+        players.add(playerInfo.id);
     }
-    const room = manager.getRoomByPlayerId(playerId);
+    const room = manager.getRoomByPlayerId(playerInfo.id, clientSocket);
     if (!room && !["startMatch", "cancelGame"].includes(message.action)) {
+        clientSocket.send(JSON.stringify({ type: "linkerError", error: "Player is not in a room" }));
+        return;
+    }
+    if (!playerInfo) {
+        clientSocket.send(JSON.stringify({ type: "linkerError", error: "Missing playerInfo" }));
         return;
     }
 
     switch (message.action) {
         case "startMatch": {
-            if (!playerInfo) {
-                console.error(`startMatch without playerInfo for ${playerId}`);
-                return;
-            }
             const player = new ServerPlayer(clientSocket, playerInfo);
             player.level = message.data.playerLevel;
             manager.addPlayer(player);
             break;
         }
         case "cancelGame": {
-            manager.removePlayer(playerId);
-            players?.delete(playerId);
+            manager.removePlayer(playerInfo.id, clientSocket);
+            players?.delete(playerInfo.id);
             break;
         }
         case "banChart": {
-            room!.onPlayerSetBan(playerId, message);
+            room!.onPlayerSetBan(playerInfo.id, message);
             break;
         }
         case "playerReady": {
-            room!.onPlayerReady(playerId);
+            room!.onPlayerReady(playerInfo.id);
             break;
         }
 
         case "updateScore": {
-            room!.onPlayerUpdateScore(playerId, message);
+            room!.onPlayerUpdateScore(playerInfo.id, message);
             break;
         }
 
         case "donePlaying": {
-            room!.onPlayerDonePlaying(playerId, message, playResult);
+            room!.onPlayerDonePlaying(playerInfo.id, message, playResult);
             break;
         }
 
         case "gameIsOver": {
-            manager.removePlayer(playerId);
-            players?.delete(playerId);
+            manager.removePlayer(playerInfo.id, clientSocket);
+            players?.delete(playerInfo.id);
             break;
         }
     }
