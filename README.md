@@ -20,8 +20,6 @@ CROSS_DECODE_LINKER_URL=http://localhost:5307
 CROSS_DECODE_LINKER_TOKEN=your_secure_token_here
 ```
 
-(As of writing this, this feature is not in the main branch, you must be in branch experimental/cross-decode-linking)
-
 ### Configuration Details
 
 | Variable | Description |
