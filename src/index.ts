@@ -112,7 +112,7 @@ function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwa
     }
 }
 
-app.listen({ port: config.PORT, host: "0.0.0.0" })
+app.listen({ port: config.PORT, host: config.HOST })
     .then(() => { })
     .catch((err) => {
         console.error("Error starting server:", err);
