@@ -558,6 +558,1166 @@
         }
     },
     {
+        "songId": "s/worldofnomads",
+        "title": "World of Nomads",
+        "bpm": "128",
+        "genre": "Electro House",
+        "composer": "litmus*",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 2,
+            "invaded": 8,
+            "massive": 13.6
+        }
+    },
+    {
+        "songId": "s/colorsafterrain",
+        "title": "Colors After Rain",
+        "bpm": "195",
+        "genre": "HARDCORE",
+        "composer": "Mono. & Reku Mochizuki",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 10,
+            "massive": 14.8
+        }
+    },
+    {
+        "songId": "s/noscope",
+        "title": "(no)scope",
+        "bpm": "135",
+        "genre": "complextro",
+        "composer": "ariiol",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 12.5,
+            "massive": 15.7
+        }
+    },
+    {
+        "songId": "s/arcofharvest",
+        "title": "Arc of Harvest",
+        "bpm": "129",
+        "genre": "Story Pop",
+        "composer": "Yu-dachi",
+        "illustrator": "2Al4wU4",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 10.5,
+            "massive": 14.3
+        }
+    },
+    {
+        "songId": "s/badveedha",
+        "title": "BAD: VEEDHA",
+        "bpm": "161",
+        "genre": "#狂った民族",
+        "composer": "DJ Raisei",
+        "illustrator": "2Al4wU4",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 11,
+            "massive": 15.3
+        }
+    },
+    {
+        "songId": "s/crystalmining",
+        "title": "CRYSTAL MINING",
+        "bpm": "180",
+        "genre": "J-Hitech / Colour Bass / Speedcore / Botanica",
+        "composer": "Salty Salt",
+        "illustrator": "炸裂蛋",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 12,
+            "massive": 15.6
+        }
+    },
+    {
+        "songId": "s/counterattack",
+        "title": "Counter Attack",
+        "bpm": "174",
+        "genre": "Drum and Bass",
+        "composer": "MAYA AKAI",
+        "illustrator": "炸裂蛋",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 12.5,
+            "massive": 15.8
+        }
+    },
+    {
+        "songId": "s/bisquitdunq",
+        "title": "Bisquit Dunq",
+        "bpm": "162",
+        "genre": "Electro Jazz",
+        "composer": "owl*tree",
+        "illustrator": "Aaaa3A",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 13.5,
+            "massive": 16.3
+        }
+    },
+    {
+        "songId": "s/gigantomachina",
+        "title": "GIGANTO MACHINA",
+        "bpm": "77.7-155.4",
+        "genre": "Magnatech",
+        "composer": "Supa7onyz vs. Sound piercer",
+        "illustrator": "人間蛋",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 8,
+            "invaded": 14,
+            "massive": 16.7,
+            "reboot": 17.1
+        }
+    },
+    {
+        "songId": "s/phasebreak",
+        "title": "PHASEBREAK",
+        "bpm": "185",
+        "genre": "Hard Renaissance",
+        "composer": "Zekk",
+        "illustrator": "31chan",
+        "version": {
+            "x": 4,
+            "y": 10,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 10.5,
+            "massive": 15.8
+        }
+    },
+    {
+        "songId": "s/renegadeparadise",
+        "title": "Renegade Paradise",
+        "bpm": "190",
+        "genre": "Hard Renaissance",
+        "composer": "Reku Mochizuki",
+        "illustrator": "果粲",
+        "version": {
+            "x": 4,
+            "y": 10,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12.5,
+            "massive": 16.5
+        }
+    },
+    {
+        "songId": "s/canopy",
+        "title": "＊･ﾟcanopy +｡.ﾟ",
+        "bpm": "165",
+        "genre": "Future Bass / Complextro",
+        "composer": "硝酸生菜Synzak",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 10,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10.5,
+            "massive": 16.2
+        }
+    },
+    {
+        "songId": "s/ternion",
+        "title": "Ternion",
+        "bpm": "60-162",
+        "genre": "⟁",
+        "composer": "黒皇帝 × Supire × rN feat. Sennzai",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 10,
+            "z": -1
+        },
+        "charts": {
+            "detected": 8,
+            "invaded": 14,
+            "massive": 16.8
+        }
+    },
+    {
+        "songId": "s/noxsilva",
+        "title": "Nox Silva",
+        "bpm": "180",
+        "genre": "Nox Silva",
+        "composer": "Nox Silva",
+        "illustrator": "画纱",
+        "version": {
+            "x": 4,
+            "y": 10,
+            "z": -1
+        },
+        "charts": {
+            "detected": 8,
+            "invaded": 14.2,
+            "massive": 16.7,
+            "reboot": 17.2
+        }
+    },
+    {
+        "songId": "s/umbrella",
+        "title": "雨伞 (Umbrella)",
+        "bpm": "120",
+        "genre": "Medium Tempo Ballad",
+        "composer": "Warak",
+        "illustrator": "RM Design Team",
+        "version": {
+            "x": 4,
+            "y": 8,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 9.5,
+            "massive": 14.3
+        }
+    },
+    {
+        "songId": "s/quovadis",
+        "title": "君往何处 (Quo Vadis)",
+        "bpm": "160",
+        "genre": "Ethnic Trance",
+        "composer": "M2U",
+        "illustrator": "LRAY",
+        "version": {
+            "x": 4,
+            "y": 8,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11.5,
+            "massive": 14.9,
+            "reboot": 15.9
+        }
+    },
+    {
+        "songId": "s/dajiahao",
+        "title": "大家好 (DaJiaHao)",
+        "bpm": "170",
+        "genre": "Oriental Core",
+        "composer": "Memme",
+        "illustrator": "RM Design Team",
+        "version": {
+            "x": 4,
+            "y": 8,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 11.5,
+            "massive": 15.9
+        }
+    },
+    {
+        "songId": "s/please",
+        "title": "幻影鬼魅 (Please)",
+        "bpm": "161",
+        "genre": "Break Beat",
+        "composer": "r300k",
+        "illustrator": "RM Design Team",
+        "version": {
+            "x": 4,
+            "y": 8,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.5,
+            "massive": 16.8
+        }
+    },
+    {
+        "songId": "s/gaia",
+        "title": "盖亚 (GAIA)",
+        "bpm": "133",
+        "genre": "Electronic House",
+        "composer": "UK x M2U",
+        "illustrator": "RM Design Team",
+        "version": {
+            "x": 4,
+            "y": 8,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 10,
+            "massive": 14.5,
+            "reboot": 15.4
+        }
+    },
+    {
+        "songId": "s/goldtown",
+        "title": "黄金之城 (Gold Town)",
+        "bpm": "160",
+        "genre": "Hibrid Electro",
+        "composer": "Memme",
+        "illustrator": "RM Design Team",
+        "version": {
+            "x": 4,
+            "y": 8,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11,
+            "massive": 15.6
+        }
+    },
+    {
+        "songId": "s/ineffabilis",
+        "title": "无可言喻 (Ineffabilis)",
+        "bpm": "160",
+        "genre": "Symphonic Trance",
+        "composer": "Gentle Stick X M2U",
+        "illustrator": "RM Design Team",
+        "version": {
+            "x": 4,
+            "y": 8,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12,
+            "massive": 15.8
+        }
+    },
+    {
+        "songId": "s/arklight",
+        "title": "神圣之光 (ArkLight)",
+        "bpm": "155",
+        "genre": "Space Techno Trance",
+        "composer": "7 Sequence",
+        "illustrator": "RM Design Team",
+        "version": {
+            "x": 4,
+            "y": 8,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.8,
+            "massive": 16.6
+        }
+    },
+    {
+        "songId": "s/relayered",
+        "title": "Re:Layered",
+        "bpm": "145",
+        "genre": "Cinematic Ethnic",
+        "composer": "Kashiwade",
+        "illustrator": "打雷",
+        "version": {
+            "x": 4,
+            "y": 7,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10.5,
+            "massive": 14.8
+        }
+    },
+    {
+        "songId": "s/byakurendefaultwinge",
+        "title": "BYAKUREN∴DEFAULTWINGE",
+        "bpm": "222",
+        "genre": "Oriental Hardcore",
+        "composer": "DRIVE.",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 7,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 12,
+            "massive": 15.9
+        }
+    },
+    {
+        "songId": "s/tomori",
+        "title": "灯守",
+        "bpm": "132",
+        "genre": "Celtic J-pop",
+        "composer": "テヅカ",
+        "illustrator": "RECKAH",
+        "version": {
+            "x": 4,
+            "y": 7,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12.5,
+            "massive": 15.9
+        }
+    },
+    {
+        "songId": "s/cantilenareperca",
+        "title": "Cantilena Reperca",
+        "bpm": "260",
+        "genre": "Hybrid Orchestral",
+        "composer": "Acotto",
+        "illustrator": "肆鸽momo",
+        "version": {
+            "x": 4,
+            "y": 7,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13,
+            "massive": 16.4
+        }
+    },
+    {
+        "songId": "s/phantomrage",
+        "title": "Phantom Rage",
+        "bpm": "192",
+        "genre": "The End of History",
+        "composer": "Ayatsugu_Otowa",
+        "illustrator": "良016",
+        "version": {
+            "x": 4,
+            "y": 7,
+            "z": -1
+        },
+        "charts": {
+            "detected": 8,
+            "invaded": 13.9,
+            "massive": 16.8
+        }
+    },
+    {
+        "songId": "s/prayfortherain",
+        "title": "Pray for the rain",
+        "bpm": "82",
+        "genre": "Rain Ballade",
+        "composer": "onoken feat. 木下珠子",
+        "illustrator": "©2026 Rayark Inc. DEEMO Ⅱ®",
+        "version": {
+            "x": 4,
+            "y": 5,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 9,
+            "massive": 14.3
+        }
+    },
+    {
+        "songId": "s/amemoyou",
+        "title": "雨模様",
+        "bpm": "110",
+        "genre": "POP",
+        "composer": "ぷにぷに電機 arr. ぺのれり",
+        "illustrator": "©2026 Rayark Inc. DEEMO Ⅱ®",
+        "version": {
+            "x": 4,
+            "y": 5,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 10,
+            "massive": 14.2
+        }
+    },
+    {
+        "songId": "s/gunnersintherain",
+        "title": "Gunners in the Rain",
+        "bpm": "100",
+        "genre": "J-pop",
+        "composer": "Mili",
+        "illustrator": "©2026 Rayark Inc. DEEMO Ⅱ®",
+        "version": {
+            "x": 4,
+            "y": 5,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10,
+            "massive": 14.8
+        }
+    },
+    {
+        "songId": "s/dubblethink",
+        "title": "Dubblethink",
+        "bpm": "123",
+        "genre": "crossover",
+        "composer": "Avans",
+        "illustrator": "©2026 Rayark Inc. DEEMO Ⅱ®",
+        "version": {
+            "x": 4,
+            "y": 5,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 12,
+            "massive": 15.5
+        }
+    },
+    {
+        "songId": "s/antikythera",
+        "title": "Antikythera",
+        "bpm": "220",
+        "genre": "Artcore",
+        "composer": "technoplanet",
+        "illustrator": "©2026 Rayark Inc. DEEMO Ⅱ®",
+        "version": {
+            "x": 4,
+            "y": 5,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.4,
+            "massive": 16.7,
+            "reboot": 15.8
+        }
+    },
+    {
+        "songId": "s/vertexion",
+        "title": "VERTEXION",
+        "bpm": "155",
+        "genre": "Hi-Tech Full on / Trance",
+        "composer": "Kinetix",
+        "illustrator": "Kinetix",
+        "version": {
+            "x": 4,
+            "y": 4,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10.5,
+            "massive": 14.7
+        }
+    },
+    {
+        "songId": "s/asymmetryhologram",
+        "title": "Asymmetry Hologram",
+        "bpm": "168",
+        "genre": "Fullon / Hypertrance",
+        "composer": "Shino",
+        "illustrator": "Shino",
+        "version": {
+            "x": 4,
+            "y": 4,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11,
+            "massive": 14.8
+        }
+    },
+    {
+        "songId": "s/glassage",
+        "title": "Glassage",
+        "bpm": "168",
+        "genre": "Artcore",
+        "composer": "7mai",
+        "illustrator": "C4Cat",
+        "version": {
+            "x": 4,
+            "y": 4,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12.5,
+            "massive": 15.6
+        }
+    },
+    {
+        "songId": "s/alteredreality",
+        "title": "Altered Reality",
+        "bpm": "175",
+        "genre": "Electronica",
+        "composer": "Neutral Moon",
+        "illustrator": "C4Cat",
+        "version": {
+            "x": 4,
+            "y": 4,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 11,
+            "massive": 15.8
+        }
+    },
+    {
+        "songId": "s/tablear",
+        "title": "Tablear",
+        "bpm": "194",
+        "genre": "Artcore",
+        "composer": "kuro feat. niui（にぅい）",
+        "illustrator": "C4Cat",
+        "version": {
+            "x": 4,
+            "y": 4,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.9,
+            "massive": 16.2
+        }
+    },
+    {
+        "songId": "s/zaiyebujiannatiandexue",
+        "title": "再也不见，那天的雪",
+        "bpm": "72",
+        "genre": "华语流行",
+        "composer": "Supa7onyz",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 3,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 8.5,
+            "massive": 12.5
+        }
+    },
+    {
+        "songId": "s/donnerschnee",
+        "title": "Donnerschnee",
+        "bpm": "148",
+        "genre": "Alternative House",
+        "composer": "void (Mournfinale)",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 3,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11,
+            "massive": 14.9
+        }
+    },
+    {
+        "songId": "s/sapphirecelestialglobe",
+        "title": "Sapphire Celestial Globe",
+        "bpm": "273",
+        "genre": "Art Core",
+        "composer": "yuichi NAGAO",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 3,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12,
+            "massive": 15.7
+        }
+    },
+    {
+        "songId": "s/cyberfimbul",
+        "title": "Cyberfimbul",
+        "bpm": "170",
+        "genre": "ArtCore",
+        "composer": "ぺのれり",
+        "illustrator": "笼茸",
+        "version": {
+            "x": 4,
+            "y": 3,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12.5,
+            "massive": 16.3
+        }
+    },
+    {
+        "songId": "s/colorlesscoldness",
+        "title": "Colorless Coldness",
+        "bpm": "212",
+        "genre": "Artcore",
+        "composer": "かねこちはる",
+        "illustrator": "微菌",
+        "version": {
+            "x": 4,
+            "y": 3,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.7,
+            "massive": 16.5
+        }
+    },
+    {
+        "songId": "s/yoinotori",
+        "title": "宵の鳥",
+        "bpm": "145",
+        "genre": "Game Music",
+        "composer": "n.k feat.影縫英",
+        "illustrator": "SEGA",
+        "version": {
+            "x": 4,
+            "y": 2,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10.5,
+            "massive": 14.7
+        }
+    },
+    {
+        "songId": "s/yorugao",
+        "title": "Yorugao",
+        "bpm": "182",
+        "genre": "Game Music",
+        "composer": "An & Ryunosuke Kudo",
+        "illustrator": "SEGA",
+        "version": {
+            "x": 4,
+            "y": 2,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 12.5,
+            "massive": 15.5,
+            "reboot": 16.5
+        }
+    },
+    {
+        "songId": "s/shukuseishinpan",
+        "title": "宿星審判",
+        "bpm": "189",
+        "genre": "Game Music",
+        "composer": "suzu",
+        "illustrator": "SEGA",
+        "version": {
+            "x": 4,
+            "y": 2,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 13.5,
+            "massive": 15.9
+        }
+    },
+    {
+        "songId": "s/straightintothelights",
+        "title": "Straight into the lights",
+        "bpm": "180",
+        "genre": "Game Music",
+        "composer": "Cosmograph",
+        "illustrator": "SEGA",
+        "version": {
+            "x": 4,
+            "y": 2,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.6,
+            "massive": 16.7
+        }
+    },
+    {
+        "songId": "s/schwarzschild",
+        "title": "Schwarzschild",
+        "bpm": "188",
+        "genre": "Game Music",
+        "composer": "Tsukasa",
+        "illustrator": "SEGA",
+        "version": {
+            "x": 4,
+            "y": 2,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10,
+            "massive": 14.8
+        }
+    },
+    {
+        "songId": "s/rondeauxofragnaroq",
+        "title": "RondeauX of RagnaroQ",
+        "bpm": "185",
+        "genre": "Game Music",
+        "composer": "Morrigan feat.Lily and 結城碧",
+        "illustrator": "SEGA",
+        "version": {
+            "x": 4,
+            "y": 2,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11.5,
+            "massive": 15.9
+        }
+    },
+    {
+        "songId": "s/noutenchokugeki",
+        "title": "脳天直撃",
+        "bpm": "145",
+        "genre": "Game Music",
+        "composer": "黒沢ダイスケ VS 穴山大輔",
+        "illustrator": "SEGA",
+        "version": {
+            "x": 4,
+            "y": 2,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12,
+            "massive": 15.4,
+            "reboot": 16.5
+        }
+    },
+    {
+        "songId": "s/mystiqueasiris",
+        "title": "mystique as iris",
+        "bpm": "172",
+        "genre": "Game Music",
+        "composer": "かねこちはる",
+        "illustrator": "SEGA",
+        "version": {
+            "x": 4,
+            "y": 2,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.8,
+            "massive": 16.7
+        }
+    },
+    {
+        "songId": "s/fallinfallin",
+        "title": "fallin' fallin' (prod. INFX, Ella Jung, Limpid)",
+        "bpm": "126",
+        "genre": "House Pop",
+        "composer": "kradness",
+        "illustrator": "©QueseraGames Co., Ltd.",
+        "version": {
+            "x": 4,
+            "y": 1,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 9.5,
+            "massive": 13.8
+        }
+    },
+    {
+        "songId": "s/rebirth",
+        "title": "Re：birth",
+        "bpm": "196",
+        "genre": "Hard Renaissance",
+        "composer": "ああああ",
+        "illustrator": "©QueseraGames Co., Ltd.",
+        "version": {
+            "x": 4,
+            "y": 1,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10,
+            "massive": 14.7,
+            "reboot": 15.7
+        }
+    },
+    {
+        "songId": "s/flutterecho",
+        "title": "Flutter Echo",
+        "bpm": "219-292",
+        "genre": "Electronic Waltz",
+        "composer": "Cansol",
+        "illustrator": "Taurell",
+        "version": {
+            "x": 4,
+            "y": 1,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 10.5,
+            "massive": 15.4
+        }
+    },
+    {
+        "songId": "s/twilightconcerto",
+        "title": "Twilight Concerto",
+        "bpm": "194",
+        "genre": "Artcore Concerto",
+        "composer": "Scarlette",
+        "illustrator": "©QueseraGames Co., Ltd.",
+        "version": {
+            "x": 4,
+            "y": 1,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12.5,
+            "massive": 15.8
+        }
+    },
+    {
+        "songId": "s/lynn",
+        "title": "L.Y.N.N.",
+        "bpm": "120-196",
+        "genre": "Artcore",
+        "composer": "Scarlette",
+        "illustrator": "©QueseraGames Co., Ltd.",
+        "version": {
+            "x": 4,
+            "y": 1,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.6,
+            "massive": 16.4
+        }
+    },
+    {
+        "songId": "s/milkinaori",
+        "title": "MilK (InaoriNostalgicRemix)",
+        "bpm": "42-152",
+        "genre": "fantasia",
+        "composer": "モリモリあつし Remixed by Inaori",
+        "illustrator": "Jizici",
+        "version": {
+            "x": 4,
+            "y": 1,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10,
+            "massive": 14.9
+        }
+    },
+    {
+        "songId": "s/milkgrg",
+        "title": "MilK (GRG REMIX)",
+        "bpm": "174",
+        "genre": "Liquid Future Bass",
+        "composer": "モリモリあつし Remixed by ガリガリさむし feat. 小城夜みるく",
+        "illustrator": "Jizici",
+        "version": {
+            "x": 4,
+            "y": 1,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11.5,
+            "massive": 15.3
+        }
+    },
+    {
+        "songId": "s/milkzekk",
+        "title": "MilK (Zekk Remix)",
+        "bpm": "180",
+        "genre": "Future Core",
+        "composer": "モリモリあつし Remixed by Zekk",
+        "illustrator": "Jizici",
+        "version": {
+            "x": 4,
+            "y": 1,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12,
+            "massive": 15.7
+        }
+    },
+    {
+        "songId": "s/milkhidraxjeil",
+        "title": "牛乳flip ～覆水盆に返らず～",
+        "bpm": "210",
+        "genre": "MilKflip",
+        "composer": "モリモリあつし Remixed by Hidra-Xjeil",
+        "illustrator": "Jizici",
+        "version": {
+            "x": 4,
+            "y": 1,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.4,
+            "massive": 16.5
+        }
+    },
+    {
+        "songId": "s/gameboy",
+        "title": "GAMEBOY",
+        "bpm": "105",
+        "genre": "Electro Downtempo",
+        "composer": "Silentroom",
+        "illustrator": "Jizici",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 2,
+            "invaded": 7,
+            "massive": 13.8
+        }
+    },
+    {
+        "songId": "s/nulctrl",
+        "title": "NULCTRL",
+        "bpm": "100",
+        "genre": "BASS MUSIC",
+        "composer": "Silentroom",
+        "illustrator": "Silentroom",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 11,
+            "massive": 14.9
+        }
+    },
+    {
+        "songId": "s/9876734123",
+        "title": "9876734123",
+        "bpm": "157",
+        "genre": "FULL-ON DANCE",
+        "composer": "Silentroom",
+        "illustrator": "Silentroom",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 12,
+            "massive": 15.3
+        }
+    },
+    {
+        "songId": "s/tomoshibi",
+        "title": "Tomoshibi",
+        "bpm": "144",
+        "genre": "PROGRESSIVE TRANCE",
+        "composer": "Silentroom",
+        "illustrator": "Jizici",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 10.5,
+            "massive": 15.6
+        }
+    },
+    {
+        "songId": "s/nhelv",
+        "title": "Nhelv",
+        "bpm": "174.59",
+        "genre": "NEUROFUNK",
+        "composer": "Silentroom",
+        "illustrator": "Frothylg",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 13.2,
+            "massive": 16.4
+        }
+    },
+    {
         "songId": "s/dreamaway",
         "title": "Dream Away feat. Yukacco",
         "bpm": "180",
@@ -570,9 +1730,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 4,
+            "invaded": 9.5,
+            "massive": 14.8
         }
     },
     {
@@ -588,9 +1748,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 5,
+            "invaded": 10,
+            "massive": 15.2
         }
     },
     {
@@ -606,9 +1766,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 5,
+            "invaded": 12.5,
+            "massive": 15.7
         }
     },
     {
@@ -624,9 +1784,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 6,
+            "invaded": 13,
+            "massive": 16.2
         }
     },
     {
@@ -642,9 +1802,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 7,
+            "invaded": 13.9,
+            "massive": 16.8
         }
     },
     {
@@ -660,9 +1820,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 4,
+            "invaded": 10.5,
+            "massive": 14.7
         }
     },
     {
@@ -678,9 +1838,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 4,
+            "invaded": 11.5,
+            "massive": 15.4
         }
     },
     {
@@ -696,9 +1856,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 5,
+            "invaded": 12,
+            "massive": 15.9
         }
     },
     {
@@ -714,9 +1874,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 6,
+            "invaded": 13.3,
+            "massive": 16.4
         }
     },
     {
@@ -732,9 +1892,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 7,
+            "invaded": 13.7,
+            "massive": 16.6
         }
     },
     {
@@ -751,7 +1911,7 @@
         },
         "charts": {
             "detected": 4,
-            "invaded": 8,
+            "invaded": 9,
             "massive": 14.3
         }
     },
@@ -769,7 +1929,7 @@
         },
         "charts": {
             "detected": 3,
-            "invaded": 9,
+            "invaded": 8.5,
             "massive": 14.6
         }
     },
@@ -806,7 +1966,7 @@
         "charts": {
             "detected": 5,
             "invaded": 13.4,
-            "massive": 16.1
+            "massive": 15.9
         }
     },
     {
@@ -896,16 +2056,16 @@
         "charts": {
             "detected": 6,
             "invaded": 12,
-            "massive": 15.9
+            "massive": 16
         }
     },
     {
         "songId": "s/invertedparadise",
         "title": "Inverted Paradise",
         "bpm": "200",
-        "genre": "DEVILCORE",
+        "genre": "Heavencore",
         "composer": "Essbee",
-        "illustrator": "DFRA",
+        "illustrator": "素苒",
         "version": {
             "x": 3,
             "y": 15,
@@ -921,27 +2081,27 @@
         "songId": "s/takeontheheat",
         "title": "Take On The H.E.A.T.!!!",
         "bpm": "147",
-        "genre": "Alternative Utopia",
+        "genre": "Speed House",
         "composer": "Supa7onyz",
-        "illustrator": "おのこ",
+        "illustrator": "咸鱼烧菜",
         "version": {
             "x": 3,
             "y": 14,
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 5,
+            "invaded": 11,
+            "massive": 15
         }
     },
     {
         "songId": "s/fieldtransistoreffect",
         "title": "Field Transistor Effect",
         "bpm": "210",
-        "genre": "席替えPOP",
+        "genre": "Military Splash",
         "composer": "Sephid",
-        "illustrator": "おゆざき",
+        "illustrator": "松本摸摸餐",
         "version": {
             "x": 3,
             "y": 14,
@@ -968,7 +2128,7 @@
         "charts": {
             "detected": 7,
             "invaded": 13.3,
-            "massive": 16.5
+            "massive": 16.4
         }
     },
     {
@@ -1076,7 +2236,7 @@
         "charts": {
             "detected": 5,
             "invaded": 12,
-            "massive": 15.8
+            "massive": 15.7
         }
     },
     {
@@ -1218,9 +2378,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 3,
-            "invaded": 9.5,
-            "massive": 14.5
+            "detected": 5,
+            "invaded": 12,
+            "massive": 16
         }
     },
     {
@@ -1292,7 +2452,7 @@
         "charts": {
             "detected": 5,
             "invaded": 12,
-            "massive": 15.9
+            "massive": 16
         }
     },
     {
@@ -1310,7 +2470,7 @@
         "charts": {
             "detected": 6,
             "invaded": 13.4,
-            "massive": 16.2
+            "massive": 16.3
         }
     },
     {
@@ -1382,7 +2542,7 @@
         "charts": {
             "detected": 6,
             "invaded": 13.2,
-            "massive": 16.4
+            "massive": 16.3
         }
     },
     {
@@ -1472,7 +2632,7 @@
         "charts": {
             "detected": 5,
             "invaded": 12.5,
-            "massive": 15.9
+            "massive": 15.8
         }
     },
     {
@@ -1512,39 +2672,39 @@
         }
     },
     {
-        "songId": "s/unpredictablenascentinvasion",
-        "title": "Unpredictable Nascent Invasion",
+        "songId": "s/findmydream",
+        "title": "Find my dream",
         "bpm": "174",
-        "genre": "Drum'n'bass",
-        "composer": "硝酸生菜",
-        "illustrator": "2Al4wU4",
+        "genre": "Vocal Pop",
+        "composer": "rejection & Mameyudoufu × 棗いつき",
+        "illustrator": "ぽよし & 内山ユニコ",
         "version": {
-            "x": 1,
+            "x": 3,
             "y": 9,
-            "z": 3
-        },
-        "charts": {
-            "detected": 3,
-            "invaded": 9.5,
-            "massive": 15.7
-        }
-    },
-    {
-        "songId": "s/reboot",
-        "title": "RE; Boot",
-        "bpm": "150",
-        "genre": "Hi-Tech Full on",
-        "composer": "溝口ゆうま feat. 柚木つばめ",
-        "illustrator": "染染",
-        "version": {
-            "x": 2,
-            "y": 0,
             "z": -1
         },
         "charts": {
-            "detected": 5,
-            "invaded": 11.5,
-            "massive": 15.8
+            "detected": 3,
+            "invaded": 9,
+            "massive": 14
+        }
+    },
+    {
+        "songId": "s/astronomicalopt",
+        "title": "Astronomical Optical Interferometry",
+        "bpm": "150",
+        "genre": "TranceStep",
+        "composer": "poplavor & Zekk",
+        "illustrator": "ぽよし & 内山ユニコ",
+        "version": {
+            "x": 3,
+            "y": 9,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10.5,
+            "massive": 15.4
         }
     },
     {
@@ -1616,7 +2776,7 @@
         "charts": {
             "detected": 5,
             "invaded": 10,
-            "massive": 15.2
+            "massive": 15.1
         }
     },
     {
@@ -1652,7 +2812,7 @@
         "charts": {
             "detected": 7,
             "invaded": 13.1,
-            "massive": 16.6
+            "massive": 16.7
         }
     },
     {
@@ -2082,9 +3242,9 @@
             "z": -1
         },
         "charts": {
-            "detected": 4,
-            "invaded": 12,
-            "massive": 15.8
+            "detected": 5,
+            "invaded": 10,
+            "massive": 15.6
         }
     },
     {
@@ -2118,7 +3278,7 @@
             "z": -1
         },
         "charts": {
-            "detected": 3,
+            "detected": 2,
             "invaded": 8.5,
             "massive": 13.6
         }
@@ -2264,7 +3424,7 @@
         "charts": {
             "detected": 6,
             "invaded": 11,
-            "massive": 15.8
+            "massive": 15.7
         }
     },
     {
@@ -2372,7 +3532,7 @@
         "charts": {
             "detected": 6,
             "invaded": 12.5,
-            "massive": 16.5
+            "massive": 16.4
         }
     },
     {
@@ -2408,7 +3568,7 @@
         "charts": {
             "detected": 5,
             "invaded": 10,
-            "massive": 15.8
+            "massive": 15.9
         }
     },
     {
@@ -2444,7 +3604,7 @@
         "charts": {
             "detected": 7,
             "invaded": 13.8,
-            "massive": 16.7
+            "massive": 16.6
         }
     },
     {
@@ -2480,7 +3640,7 @@
         "charts": {
             "detected": 4,
             "invaded": 10.5,
-            "massive": 15
+            "massive": 15.1
         }
     },
     {
@@ -3308,7 +4468,7 @@
         "charts": {
             "detected": 6,
             "invaded": 12,
-            "massive": 16.4
+            "massive": 16.3
         }
     },
     {
@@ -3344,7 +4504,8 @@
         "charts": {
             "detected": 5,
             "invaded": 14.3,
-            "massive": 14.7
+            "massive": 14.7,
+            "reboot": 16.1
         }
     },
     {
@@ -3360,7 +4521,7 @@
             "z": -1
         },
         "charts": {
-            "detected": 5,
+            "detected": 6,
             "invaded": 10.5,
             "massive": 16
         }
@@ -3416,7 +4577,8 @@
         "charts": {
             "detected": 4,
             "invaded": 12,
-            "massive": 15.6
+            "massive": 15.6,
+            "reboot": 16.6
         }
     },
     {
@@ -3722,7 +4884,8 @@
         "charts": {
             "detected": 5,
             "invaded": 10,
-            "massive": 15.1
+            "massive": 15.1,
+            "reboot": 15.5
         }
     },
     {
@@ -3776,7 +4939,8 @@
         "charts": {
             "detected": 4,
             "invaded": 10,
-            "massive": 14.6
+            "massive": 14.6,
+            "reboot": 16.2
         }
     },
     {
@@ -3938,7 +5102,7 @@
         "charts": {
             "detected": 5,
             "invaded": 11,
-            "massive": 16
+            "massive": 16.1
         }
     },
     {
@@ -4152,9 +5316,9 @@
             "z": 1
         },
         "charts": {
-            "detected": 3,
-            "invaded": 9.5,
-            "massive": 14.5
+            "detected": 5,
+            "invaded": 12,
+            "massive": 16
         }
     },
     {
@@ -4494,7 +5658,7 @@
             "z": 0
         },
         "charts": {
-            "detected": 3,
+            "detected": 4,
             "invaded": 9.5,
             "massive": 13.8
         }
@@ -4818,9 +5982,99 @@
             "z": -1
         },
         "charts": {
-            "detected": 0,
-            "invaded": 0,
-            "massive": 0
+            "detected": 6,
+            "invaded": 13.4,
+            "massive": 16.4
+        }
+    },
+    {
+        "songId": "s/prayerfrom",
+        "title": "Prayer from the Crystallized World",
+        "bpm": "90",
+        "genre": "Chaos Fantasia",
+        "composer": "Halv",
+        "illustrator": "Rostel",
+        "version": {
+            "x": 4,
+            "y": 3,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 9,
+            "massive": 14.7
+        }
+    },
+    {
+        "songId": "s/karanosu",
+        "title": "空の巣",
+        "bpm": "69",
+        "genre": "World Electronic",
+        "composer": "ユアミトス",
+        "illustrator": "©2026 Rayark Inc. DEEMO Ⅱ®",
+        "version": {
+            "x": 4,
+            "y": 5,
+            "z": -1
+        },
+        "charts": {
+            "detected": 2,
+            "invaded": 7,
+            "massive": 13.7
+        }
+    },
+    {
+        "songId": "s/interroban2025",
+        "title": "!nterroban(?, (2025 Remaster)",
+        "bpm": "220",
+        "genre": "Uncommonsense",
+        "composer": "Aoi",
+        "illustrator": "Graphite",
+        "version": {
+            "x": 4,
+            "y": 7,
+            "z": 1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12.5,
+            "massive": 15.8
+        }
+    },
+    {
+        "songId": "s/fractalfission",
+        "title": "Fractal Fission",
+        "bpm": "215",
+        "genre": "Artcore",
+        "composer": "ARForest",
+        "illustrator": "YinRo",
+        "version": {
+            "x": 4,
+            "y": 7,
+            "z": 1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.8,
+            "massive": 16.6
+        }
+    },
+    {
+        "songId": "s/tothe4pex",
+        "title": "TO THE 4PEX",
+        "bpm": "180",
+        "genre": "Let The Game Begin",
+        "composer": "Reku Mochizuki",
+        "illustrator": "Kago",
+        "version": {
+            "x": 4,
+            "y": 10,
+            "z": 1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11.5,
+            "massive": 15.4
         }
     },
     {
@@ -4838,7 +6092,8 @@
         "charts": {
             "detected": 5,
             "invaded": 10,
-            "massive": 15.5
+            "massive": 15.5,
+            "reboot": 15.8
         }
     },
     {
@@ -4892,7 +6147,8 @@
         "charts": {
             "detected": 5,
             "invaded": 9,
-            "massive": 14.2
+            "massive": 14.2,
+            "reboot": 15.7
         }
     },
     {
@@ -5018,7 +6274,8 @@
         "charts": {
             "detected": 3,
             "invaded": 9.5,
-            "massive": 15.2
+            "massive": 15.2,
+            "reboot": 15.8
         }
     },
     {
@@ -5126,7 +6383,7 @@
         "charts": {
             "detected": 3,
             "invaded": 9.5,
-            "massive": 15.7
+            "massive": 15.6
         }
     },
     {
@@ -5250,9 +6507,9 @@
             "z": 1
         },
         "charts": {
-            "detected": 4,
-            "invaded": 12,
-            "massive": 15.8
+            "detected": 5,
+            "invaded": 10,
+            "massive": 15.6
         }
     },
     {
@@ -5342,6 +6599,134 @@
         "charts": {
             "detected": 6,
             "invaded": 13.3,
+            "massive": 16.3
+        }
+    },
+    {
+        "songId": "s/tsuzuriawasenostory",
+        "title": "綴リ合ワセノ物語",
+        "bpm": "169",
+        "genre": "Memory-telling Rock",
+        "composer": "TAKU1175 feat. かなたん",
+        "illustrator": "该盖被被了",
+        "version": {
+            "x": 4,
+            "y": 0,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10,
+            "massive": 15.2
+        }
+    },
+    {
+        "songId": "s/purplerave",
+        "title": "PURPLERAVE",
+        "bpm": "165",
+        "genre": "SPEEDRAVE",
+        "composer": "Tatsh & NAOKI feat. Reyuna (HiiT Factory)",
+        "illustrator": "Jizici",
+        "version": {
+            "x": 4,
+            "y": 6,
+            "z": -1
+        },
+        "charts": {
+            "detected": 8,
+            "invaded": 8.5,
+            "massive": 15.6
+        }
+    },
+    {
+        "songId": "s/aterlbus2025",
+        "title": "αterlβus (2025 Remaster)",
+        "bpm": "202",
+        "genre": "Renaissance Hardcore",
+        "composer": "Aoi",
+        "illustrator": "CinEraLiA",
+        "version": {
+            "x": 4,
+            "y": 7,
+            "z": 1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 11.5,
+            "massive": 15.6,
+            "reboot": 16.5
+        }
+    },
+    {
+        "songId": "s/parousia",
+        "title": "Parousia",
+        "bpm": "132-158",
+        "genre": "APOCALYPSIS JOHANNIS",
+        "composer": "xi",
+        "illustrator": "1B",
+        "version": {
+            "x": 4,
+            "y": 9,
+            "z": 1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 12,
+            "massive": 16.2
+        }
+    },
+    {
+        "songId": "s/poppy2026",
+        "title": "Poppy (2026 Remaster)",
+        "bpm": "220",
+        "genre": "Hardcore",
+        "composer": "Columba (Daily vs. Roon_kun)",
+        "illustrator": "雷欧@LeoO",
+        "version": {
+            "x": 4,
+            "y": 9,
+            "z": 1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 12,
+            "massive": 15.8
+        }
+    },
+    {
+        "songId": "s/glassyheart",
+        "title": "GlassyHeart.",
+        "bpm": "160",
+        "genre": "Botanica",
+        "composer": "ILusMin feat. Bob Hou",
+        "illustrator": "M.Ghost",
+        "version": {
+            "x": 4,
+            "y": 9,
+            "z": 1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 10.5,
+            "massive": 14.6,
+            "reboot": 16.6
+        }
+    },
+    {
+        "songId": "s/trickortreat",
+        "title": "Trick or treat",
+        "bpm": "175",
+        "genre": "CORE-FULLON",
+        "composer": "Shiroi-Ice/HanamaRuri/ariiol",
+        "illustrator": "BA",
+        "version": {
+            "x": 4,
+            "y": 9,
+            "z": 1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 13,
             "massive": 16.3
         }
     },
@@ -5522,7 +6907,8 @@
         "charts": {
             "detected": 3,
             "invaded": 11.5,
-            "massive": 14.5
+            "massive": 14.5,
+            "reboot": 15.5
         }
     },
     {
@@ -5557,7 +6943,7 @@
         },
         "charts": {
             "detected": 3,
-            "invaded": 8,
+            "invaded": 8.5,
             "massive": 13.7
         }
     },
@@ -5594,7 +6980,8 @@
         "charts": {
             "detected": 5,
             "invaded": 12,
-            "massive": 16.2
+            "massive": 16.2,
+            "reboot": 16.3
         }
     },
     {
@@ -5652,6 +7039,24 @@
         }
     },
     {
+        "songId": "s/ipheion",
+        "title": "Ipheion",
+        "bpm": "168",
+        "genre": "Artcore",
+        "composer": "LucaProject",
+        "illustrator": "ari羊",
+        "version": {
+            "x": 4,
+            "y": 6,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10.5,
+            "massive": 15.2
+        }
+    },
+    {
         "songId": "s/etudesunset",
         "title": "Etude -Sunset-",
         "bpm": "159",
@@ -5666,7 +7071,26 @@
         "charts": {
             "detected": 5,
             "invaded": 11.5,
-            "massive": 14
+            "massive": 14,
+            "reboot": 14.8
+        }
+    },
+    {
+        "songId": "s/cataclysm",
+        "title": "CATACLYSM",
+        "bpm": "214",
+        "genre": "RUIN CORE",
+        "composer": "U-ske feat. ricono",
+        "illustrator": "キドリ",
+        "version": {
+            "x": 4,
+            "y": 9,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 11.5,
+            "massive": 15.4
         }
     },
     {
@@ -5738,7 +7162,8 @@
         "charts": {
             "detected": 5,
             "invaded": 10.5,
-            "massive": 15.1
+            "massive": 15.1,
+            "reboot": 16.4
         }
     },
     {
@@ -5775,6 +7200,24 @@
             "detected": 4,
             "invaded": 12,
             "massive": 15.8
+        }
+    },
+    {
+        "songId": "s/dataaggregation",
+        "title": "Data Aggregation",
+        "bpm": "155",
+        "genre": "Hi-Tech / Hardcore",
+        "composer": "Yukira",
+        "illustrator": "Koura",
+        "version": {
+            "x": 4,
+            "y": 6,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 11.5,
+            "massive": 15.6
         }
     },
     {
@@ -5868,6 +7311,24 @@
         }
     },
     {
+        "songId": "s/quasipartycle",
+        "title": "Quasi-partycle Masquerade",
+        "bpm": "126",
+        "genre": "Glitch Hop",
+        "composer": "LB & DJ MossyStone",
+        "illustrator": "微菌",
+        "version": {
+            "x": 4,
+            "y": 6,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11,
+            "massive": 15.7
+        }
+    },
+    {
         "songId": "s/halcyon",
         "title": "Halcyon",
         "bpm": "40-191",
@@ -5918,7 +7379,7 @@
         "charts": {
             "detected": 4,
             "invaded": 9.5,
-            "massive": 15.5
+            "massive": 15.4
         }
     },
     {
@@ -5954,7 +7415,7 @@
         "charts": {
             "detected": 6,
             "invaded": 12,
-            "massive": 16.5
+            "massive": 16.4
         }
     },
     {
@@ -5973,6 +7434,42 @@
             "detected": 6,
             "invaded": 13.3,
             "massive": 16.2
+        }
+    },
+    {
+        "songId": "s/rasentsuioku",
+        "title": "螺旋追憶の探索者",
+        "bpm": "195",
+        "genre": "Symphonic Schranz",
+        "composer": "TAKIO vs siromaru feat. ぽめ",
+        "illustrator": "yunkkker",
+        "version": {
+            "x": 4,
+            "y": 6,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12,
+            "massive": 16.1
+        }
+    },
+    {
+        "songId": "s/magicalrendastadium",
+        "title": "MAGICAL RENDA STADIUM",
+        "bpm": "175",
+        "genre": "VERTICAL MAGIC",
+        "composer": "ルゼ",
+        "illustrator": "tutidama + retu",
+        "version": {
+            "x": 4,
+            "y": 9,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12,
+            "massive": 15.8
         }
     },
     {
