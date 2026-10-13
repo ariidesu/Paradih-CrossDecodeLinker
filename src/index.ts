@@ -4,13 +4,7 @@ import websocket from "@fastify/websocket";
 import config from "./config";
 import { randomUUID } from "crypto";
 import { RoomsManager, ServerPlayer } from "./manager";
-import {
-    ClientBanChartMessage,
-    ClientDonePlayingMessage,
-    ClientUpdateScoreMessage,
-    PlayResultData,
-    ServerForwardMessage
-} from "./types";
+import { isClientMessage, isServerForwardMessage, ServerForwardMessage } from "./types";
 
 const app = fastify({ logger: true });
 const manager = new RoomsManager();
@@ -19,6 +13,7 @@ const connectedClients = new Set<WebSocket>();
 const clientPlayers = new Map<WebSocket, Set<string>>();
 
 app.register(websocket);
+app.addHook("onClose", async () => manager.close());
 
 app.register(async function (fastify) {
     fastify.get("/", { websocket: true }, (socket, req) => {
@@ -35,9 +30,9 @@ app.register(async function (fastify) {
 
         socket.on("message", (data: RawData) => {
             try {
-                const message = JSON.parse(data.toString());
-                if (message.linker) {
-                    handleClientMessage(socket, message as ServerForwardMessage);
+                const message: unknown = JSON.parse(data.toString());
+                if (isServerForwardMessage(message)) {
+                    handleClientMessage(socket, message);
                 }
             } catch (error) {
                 console.error("Error parsing message:", error);
@@ -59,6 +54,7 @@ app.register(async function (fastify) {
 
 function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwardMessage) {
     const { playerInfo, playResult, message } = clientMessage;
+    if (!isClientMessage(message)) return;
     if (!playerInfo) {
         console.error("Missing playerInfo in message, client message:", JSON.stringify(clientMessage));
         clientSocket.send(JSON.stringify({ type: "linkerError", error: "Missing playerInfo" }));
@@ -74,6 +70,8 @@ function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwa
         acknowledge();
         return;
     }
+    const activePlayer = manager.getPlayerByIdAndSocket(playerInfo.id, clientSocket);
+    if (message.action !== "startMatch" && activePlayer && activePlayer.info.connectionId !== playerInfo.connectionId) return;
     if (players) {
         players.add(playerInfo.id);
     }
@@ -101,21 +99,21 @@ function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwa
             break;
         }
         case "banChart": {
-            room!.onPlayerSetBan(playerInfo.id, message);
+            if (!room!.onPlayerSetBan(playerInfo.id, clientSocket, message)) return;
             break;
         }
         case "playerReady": {
-            room!.onPlayerReady(playerInfo.id);
+            if (!room!.onPlayerReady(playerInfo.id, clientSocket)) return;
             break;
         }
 
         case "updateScore": {
-            room!.onPlayerUpdateScore(playerInfo.id, message);
+            if (!room!.onPlayerUpdateScore(playerInfo.id, clientSocket, message)) return;
             break;
         }
 
         case "donePlaying": {
-            if (!room!.onPlayerDonePlaying(playerInfo.id, message, playResult)) return;
+            if (!room!.onPlayerDonePlaying(playerInfo.id, clientSocket, message, playResult)) return;
             break;
         }
 

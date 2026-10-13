@@ -13,6 +13,10 @@ export type UpdateScoreData = {
 };
 
 export interface PlayResultData {
+    roomId: string;
+    roundStartedAt: string;
+    chartId: string;
+    createdAt: string;
     score: number;
     grade: number;
     combo: number;
@@ -27,6 +31,7 @@ export interface PlayResultData {
 
 export interface PlayerInfo {
     id: string;
+    connectionId: string;
     username: string;
     usernameMask: string;
     level: number;
@@ -96,9 +101,61 @@ export type ClientGameOverMessage = ClientBaseMessage & {
 
 export type ClientMessage = ClientHeartbeatMessage | ClientStartMatchMessage | ClientCancelGameMessage | ClientBanChartMessage | ClientReadyMessage | ClientUpdateScoreMessage | ClientDonePlayingMessage | ClientGameOverMessage;
 
+export function isClientMessage(value: unknown): value is ClientMessage {
+    if (typeof value !== "object" || value === null) return false;
+    const message = value as Record<string, unknown>;
+    if (!Number.isSafeInteger(message.timestamp) ||
+        (message.nonce !== undefined && (typeof message.nonce !== "string" || message.nonce.length === 0)) ||
+        typeof message.data !== "object" || message.data === null || Array.isArray(message.data)) return false;
+    const data = message.data as Record<string, unknown>;
+    const count = (value: unknown) => typeof value === "number" && Number.isInteger(value) && value >= 0 && value <= 0x7fffffff;
+    switch (message.action) {
+        case "heartbeat":
+        case "cancelGame":
+        case "gameIsOver":
+        case "playerReady":
+            return true;
+        case "startMatch":
+            return count(data.playerLevel) && typeof data.isHiddenInfo === "boolean" && typeof data.isHiddenRating === "boolean";
+        case "banChart":
+            return typeof data.chartIndex === "number" && Number.isInteger(data.chartIndex) && data.chartIndex >= -1;
+        case "updateScore":
+            return ["score", "totalNote", "near", "received", "lost"].every(key => count(data[key])) && typeof data.hasMiss === "boolean";
+        case "donePlaying":
+            return typeof data.resultId === "string" && data.resultId.length > 0 &&
+                Array.isArray(data.judgeDetails) && data.judgeDetails.length === 4 && data.judgeDetails.every(count);
+        default:
+            return false;
+    }
+}
+
+export function isServerForwardMessage(value: unknown): value is ServerForwardMessage {
+    if (typeof value !== "object" || value === null) return false;
+    const envelope = value as Record<string, unknown>;
+    if (envelope.linker !== true || !isClientMessage(envelope.message) ||
+        typeof envelope.playerInfo !== "object" || envelope.playerInfo === null) return false;
+    const player = envelope.playerInfo as Record<string, unknown>;
+    if (!["id", "connectionId", "username", "usernameMask"].every(key => typeof player[key] === "string") ||
+        !player.id || !player.connectionId ||
+        !["level", "rating", "battleRating"].every(key => typeof player[key] === "number" && Number.isFinite(player[key])) ||
+        typeof player.isPrdOnline !== "boolean" || typeof player.style !== "object" || player.style === null) return false;
+    const style = player.style as Record<string, unknown>;
+    if (!["skin", "bg", "title"].every(key => typeof style[key] === "string")) return false;
+    if (envelope.playResult === undefined) return true;
+    if (typeof envelope.playResult !== "object" || envelope.playResult === null) return false;
+    const result = envelope.playResult as Record<string, unknown>;
+    const count = (value: unknown) => typeof value === "number" && Number.isInteger(value) && value >= 0 && value <= 0x7fffffff;
+    if (!["roomId", "chartId", "createdAt", "roundStartedAt"].every(key => typeof result[key] === "string") ||
+        !["score", "grade", "combo", "maxCombo"].every(key => count(result[key])) ||
+        typeof result.stats !== "object" || result.stats === null) return false;
+    const stats = result.stats as Record<string, unknown>;
+    return ["decrypted_plus", "decrypted", "received", "lost"].every(key => count(stats[key]));
+}
+
 export type LinkerToServerMessage = {
     linker: true;
     targetPlayerId: string;
+    targetConnectionId: string;
     message: ServerMessage;
 }
 

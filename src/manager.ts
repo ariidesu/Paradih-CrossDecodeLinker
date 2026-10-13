@@ -25,6 +25,7 @@ export class ServerPlayer {
     public isHiddenInfo = false;
     public isHiddenRating = false;
     public lastScoreData?: UpdateScoreData;
+    private disconnected = false;
 
     constructor(serverSocket: WebSocket, info: PlayerInfo) {
         this.serverSocket = serverSocket;
@@ -34,17 +35,19 @@ export class ServerPlayer {
     }
 
     sendMessage(message: ServerMessage) {
-        if (this.serverSocket.readyState === WebSocket.OPEN) {
+        if (!this.disconnected && this.serverSocket.readyState === WebSocket.OPEN) {
             const linkerMessage: LinkerToServerMessage = {
                 message,
                 linker: true,
-                targetPlayerId: this.id
+                targetPlayerId: this.id,
+                targetConnectionId: this.info.connectionId
             };
             this.serverSocket.send(JSON.stringify(linkerMessage));
         }
     }
 
     disconnect() {
+        this.disconnected = true;
         // We don't close the server socket, just stop sending messages to this player
         // The server will handle the player's actual disconnection
     }
@@ -71,6 +74,8 @@ export class Room {
     private bannedTrackIndexes: [number, number] = [-1, -1];
     private cleanupTimeout?: NodeJS.Timeout;
     private playersResultIds: [string?, string?] = [undefined, undefined];
+    private destroyed = false;
+    private selectedChartId?: string;
 
     private onDestroy: () => void;
 
@@ -79,15 +84,23 @@ export class Room {
         this.players = players;
         this.onDestroy = onDestroy;
 
+        this.makeRoster();
+
+        console.log(`Room ${this.id} created for ${players[0].info.username} (server) and ${players[1].info.username} (server)`);
+    }
+
+    public start() {
+        if (this.roster.trackList.length < 5) {
+            this.broadcast({ status: "ok", action: "cancelMatch", data: { reason: "SONG_NOT_ENOUGH" } });
+            this.destroy();
+            return;
+        }
         this.broadcast({
             status: "ok",
             action: "matchConfirm",
             data: {}
         });
 
-        this.makeRoster();
-
-        console.log(`Room ${this.id} created for ${players[0].info.username} (server) and ${players[1].info.username} (server)`);
         this.begin();
     }
 
@@ -95,39 +108,41 @@ export class Room {
         return this.players.indexOf(player);
     }
 
-    public getPlayerById(playerId: string): ServerPlayer | undefined {
-        return this.players.find(p => p.id === playerId);
+    public getPlayerById(playerId: string, serverSocket: WebSocket): ServerPlayer | undefined {
+        return this.players.find(p => p.id === playerId && p.serverSocket === serverSocket);
     }
 
-    public onPlayerSetBan(playerId: string, message: ClientBanChartMessage) {
-        const player = this.getPlayerById(playerId);
-        if (!player) return;
+    public onPlayerSetBan(playerId: string, serverSocket: WebSocket, message: ClientBanChartMessage) {
+        const player = this.getPlayerById(playerId, serverSocket);
+        if (!player) return false;
 
         const playerIndex = this.getPlayerIndex(player);
-        if (playerIndex === -1 || this.state !== "banning") return;
-        if (!Number.isInteger(message.data.chartIndex) || message.data.chartIndex < -1 || message.data.chartIndex >= this.roster.trackList.length) return;
-        if (this.playersBanned[playerIndex]) return;
+        if (this.destroyed || playerIndex === -1 || this.state !== "banning") return false;
+        if (!Number.isInteger(message.data.chartIndex) || message.data.chartIndex < -1 || message.data.chartIndex >= this.roster.trackList.length) return false;
+        if (this.playersBanned[playerIndex]) return this.bannedTrackIndexes[playerIndex] === message.data.chartIndex;
 
         this.playersBanned[playerIndex] = true;
         this.bannedTrackIndexes[playerIndex] = message.data.chartIndex;
+        return true;
     }
 
-    public onPlayerReady(playerId: string) {
-        const player = this.getPlayerById(playerId);
-        if (!player) return;
+    public onPlayerReady(playerId: string, serverSocket: WebSocket) {
+        const player = this.getPlayerById(playerId, serverSocket);
+        if (!player) return false;
 
         const playerIndex = this.getPlayerIndex(player);
-        if (playerIndex === -1 || this.state !== "banning") return;
+        if (this.destroyed || playerIndex === -1 || this.state !== "banning" || !this.selectedChartId) return false;
 
         this.playersReady[playerIndex] = true;
+        return true;
     }
 
-    public onPlayerUpdateScore(playerId: string, message: ClientUpdateScoreMessage) {
-        const player = this.getPlayerById(playerId);
-        if (!player) return;
+    public onPlayerUpdateScore(playerId: string, serverSocket: WebSocket, message: ClientUpdateScoreMessage) {
+        const player = this.getPlayerById(playerId, serverSocket);
+        if (!player) return false;
 
         const playerIndex = this.getPlayerIndex(player);
-        if (playerIndex === -1 || this.state !== "ingame" || this.playersFinished[playerIndex]) return;
+        if (this.destroyed || playerIndex === -1 || this.state !== "ingame" || this.playersFinished[playerIndex]) return false;
 
         player.lastScoreData = message.data;
 
@@ -137,18 +152,22 @@ export class Room {
             action: "opponentScoreUpdate",
             data: message.data
         });
+        return true;
     }
 
-    public onPlayerDonePlaying(playerId: string, message: ClientDonePlayingMessage, playResult?: PlayResultData) {
-        const player = this.getPlayerById(playerId);
+    public onPlayerDonePlaying(playerId: string, serverSocket: WebSocket, message: ClientDonePlayingMessage, playResult?: PlayResultData) {
+        const player = this.getPlayerById(playerId, serverSocket);
         if (!player) return false;
 
         const playerIndex = this.getPlayerIndex(player);
-        if (playerIndex === -1 || !["ingame", "finished"].includes(this.state)) return false;
+        if (this.destroyed || playerIndex === -1 || this.playersDisconnected[playerIndex] || !["ingame", "finished"].includes(this.state)) return false;
         if (this.playersFinished[playerIndex]) {
             return this.playersResultIds[playerIndex] === message.data.resultId;
         }
-        if (!playResult) return false;
+        if (!playResult || playResult.roomId !== this.id || playResult.chartId !== this.selectedChartId ||
+            !Number.isFinite(Date.parse(playResult.roundStartedAt)) ||
+            !Number.isFinite(Date.parse(playResult.createdAt)) ||
+            Date.parse(playResult.createdAt) < Date.parse(playResult.roundStartedAt)) return false;
 
         this.playersResultIds[playerIndex] = message.data.resultId;
         this.playersResults[playerIndex] = playResult;
@@ -157,19 +176,20 @@ export class Room {
         return true;
     }
 
-    public onPlayerDisconnect(playerId: string) {
-        const player = this.getPlayerById(playerId);
+    public onPlayerDisconnect(playerId: string, serverSocket: WebSocket) {
+        const player = this.getPlayerById(playerId, serverSocket);
         if (!player) return;
 
         console.log(`Room ${this.id}: Player ${player.info.username} disconnected`);
         const playerIndex = this.getPlayerIndex(player);
-        if (playerIndex === -1) return;
+        if (this.destroyed || playerIndex === -1 || this.playersDisconnected[playerIndex]) return;
 
         this.playersDisconnected[playerIndex] = true;
+        player.disconnect();
 
         const oppositeIndex = 1 - playerIndex;
         if (this.state !== "finished") {
-            if (!this.playersDisconnected[oppositeIndex] && this.state === "banning") {
+            if (!this.playersDisconnected[oppositeIndex] && (this.state === "waiting" || this.state === "banning")) {
                 this.players[oppositeIndex].sendMessage({
                     status: "ok",
                     action: "cancelMatch",
@@ -183,17 +203,18 @@ export class Room {
                 });
             }
 
-            this.state = "finished";
-            this.destroy();
-        } else if (this.playersDisconnected.every(Boolean)) {
-            this.destroy();
+            if (this.state !== "ingame") this.destroy();
         }
+        if (this.playersDisconnected.every(Boolean)) this.destroy();
     }
 
     public destroy() {
+        if (this.destroyed) return;
+        this.destroyed = true;
         this.state = "finished";
         if (this.cleanupTimeout) clearTimeout(this.cleanupTimeout);
         this.onDestroy();
+        this.players.forEach(player => player.disconnect());
     }
 
     private broadcast(message: ServerMessage) {
@@ -215,7 +236,7 @@ export class Room {
     }
 
     private getGradeFromScore(score: number): "INF+" | "INF" | "AAA+" | "AAA" | "AA+" | "AA" | "A+" | "A" | "B" | "C" | "D" {
-        if (score >= 1010000) return "INF+";
+        if (score >= 1009000) return "INF+";
         if (score >= 1000000) return "INF";
         if (score >= 990000) return "AAA+";
         if (score >= 980000) return "AAA";
@@ -265,24 +286,29 @@ export class Room {
             }
         });
 
-        this.banPhase();
+        this.banPhase().catch(error => {
+            console.error("Battle room failed:", error);
+            this.destroy();
+        });
     }
 
     private async banPhase() {
-        if (this.state !== "waiting") return;
+        if (this.destroyed || this.state !== "waiting") return;
         this.state = "banning";
 
         while (!this.playersBanned[0] || !this.playersBanned[1]) {
-            if (this.playersDisconnected[0] || this.playersDisconnected[1]) return;
+            if (this.destroyed || this.playersDisconnected[0] || this.playersDisconnected[1]) return;
             await new Promise(resolve => setTimeout(resolve, 100));
         }
 
         // Just in case........ can be removed though?
         await new Promise(resolve => setTimeout(resolve, 300));
-        if (this.playersDisconnected[0] || this.playersDisconnected[1]) return;
+        if (this.destroyed || this.playersDisconnected[0] || this.playersDisconnected[1]) return;
 
         const canChooseTrackIndexes = this.roster.trackList.map((_, index) => index).filter((i) => !this.bannedTrackIndexes.includes(i));
         const chosenTrackIndex = canChooseTrackIndexes[Math.floor(Math.random() * canChooseTrackIndexes.length)];
+        const difficulty = ["detected", "invaded", "massive", "reboot"][this.roster.diffList[chosenTrackIndex]];
+        this.selectedChartId = `${this.roster.trackList[chosenTrackIndex]}/${difficulty}`;
         this.broadcast({
             status: "ok",
             action: "annoFinnalChart",
@@ -295,14 +321,14 @@ export class Room {
         });
 
         while (!this.playersReady[0] || !this.playersReady[1]) {
-            if (this.playersDisconnected[0] || this.playersDisconnected[1]) return;
+            if (this.destroyed || this.playersDisconnected[0] || this.playersDisconnected[1]) return;
             await new Promise(resolve => setTimeout(resolve, 100));
         }
-        this.ingamePhase();
+        await this.ingamePhase();
     }
 
     private async ingamePhase() {
-        if (this.state !== "banning") return;
+        if (this.destroyed || this.state !== "banning") return;
 
         this.state = "ingame";
         this.broadcast({
@@ -311,10 +337,11 @@ export class Room {
             data: {}
         });
 
-        while (!this.playersFinished[0] || !this.playersFinished[1]) {
-            if (this.playersDisconnected[0] || this.playersDisconnected[1]) return;
+        while (!this.playersFinished.every((finished, index) => finished || this.playersDisconnected[index])) {
+            if (this.destroyed) return;
             await new Promise(resolve => setTimeout(resolve, 100));
         }
+        if (this.destroyed) return;
 
         this.state = "finished";
 
@@ -340,7 +367,9 @@ export class Room {
         };
 
         let player1Win: boolean | null = false;
-        if (player1Result && player2Result) {
+        if (this.playersDisconnected[0] !== this.playersDisconnected[1]) {
+            player1Win = !this.playersDisconnected[0];
+        } else if (player1Result && player2Result) {
             player1Win = player1Result.score === player2Result.score ? null : player1Result.score > player2Result.score;
         } else {
             player1Win = player1Result != null;
@@ -397,7 +426,9 @@ export class RoomsManager {
         return true;
     }
 
-    private getPlayerByIdAndSocket(playerId: string, serverSocket: WebSocket): ServerPlayer | undefined {
+    public getPlayerByIdAndSocket(playerId: string, serverSocket: WebSocket): ServerPlayer | undefined {
+        const queued = this.waitingQueue.find(player => player.id === playerId && player.serverSocket === serverSocket);
+        if (queued) return queued;
         for (const [player, _] of this.playerToRoomMap) {
             if (player.id === playerId && player.serverSocket === serverSocket) {
                 return player;
@@ -418,6 +449,7 @@ export class RoomsManager {
             this.rooms.set(room.id, room);
             this.playerToRoomMap.set(player1, room.id);
             this.playerToRoomMap.set(player2, room.id);
+            room.start();
         }
     }
 
@@ -442,7 +474,9 @@ export class RoomsManager {
 
         const room = this.getRoomByPlayerId(playerId, serverSocket);
         if (room) {
-            room.onPlayerDisconnect(playerId);
+            room.onPlayerDisconnect(playerId, serverSocket);
+            const player = room.getPlayerById(playerId, serverSocket);
+            if (player) this.playerToRoomMap.delete(player);
         }
     }
 
@@ -455,9 +489,17 @@ export class RoomsManager {
         for (const room of this.rooms.values()) {
             for (const player of room.players) {
                 if (player.serverSocket === serverSocket) {
-                    room.onPlayerDisconnect(player.id);
+                    room.onPlayerDisconnect(player.id, serverSocket);
+                    this.playerToRoomMap.delete(player);
                 }
             }
         }
+    }
+
+    public close() {
+        for (const room of this.rooms.values()) room.destroy();
+        this.waitingQueue = [];
+        this.rooms.clear();
+        this.playerToRoomMap.clear();
     }
 }
