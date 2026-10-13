@@ -2,6 +2,7 @@ import WebSocket, { RawData } from "ws";
 import fastify from "fastify";
 import websocket from "@fastify/websocket";
 import config from "./config";
+import { randomUUID } from "crypto";
 import { RoomsManager, ServerPlayer } from "./manager";
 import {
     ClientBanChartMessage,
@@ -64,12 +65,21 @@ function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwa
         return;
     }
     const players = clientPlayers.get(clientSocket);
+    const acknowledge = () => {
+        if (message.nonce) {
+            new ServerPlayer(clientSocket, playerInfo).sendMessage({ status: "ok", code: "OK", nonce: message.nonce });
+        }
+    };
+    if (message.action === "heartbeat") {
+        acknowledge();
+        return;
+    }
     if (players) {
         players.add(playerInfo.id);
     }
     const room = manager.getRoomByPlayerId(playerInfo.id, clientSocket);
-    if (!room && !["startMatch", "cancelGame"].includes(message.action)) {
-        clientSocket.send(JSON.stringify({ type: "linkerError", error: "Player is not in a room" }));
+    if (!room && !["startMatch", "cancelGame", "gameIsOver"].includes(message.action)) {
+        new ServerPlayer(clientSocket, playerInfo).sendMessage({ status: "failed", code: "NOT_IN_QUEUE", nonce: message.nonce ?? randomUUID() });
         return;
     }
 
@@ -77,7 +87,12 @@ function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwa
         case "startMatch": {
             const player = new ServerPlayer(clientSocket, playerInfo);
             player.level = message.data.playerLevel;
-            manager.addPlayer(player);
+            player.isHiddenInfo = message.data.isHiddenInfo;
+            player.isHiddenRating = message.data.isHiddenRating;
+            if (!manager.addPlayer(player)) {
+                player.sendMessage({ status: "failed", code: "IN_BATTLE_ALREADY", nonce: message.nonce ?? randomUUID() });
+                return;
+            }
             break;
         }
         case "cancelGame": {
@@ -100,7 +115,7 @@ function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwa
         }
 
         case "donePlaying": {
-            room!.onPlayerDonePlaying(playerInfo.id, message, playResult);
+            if (!room!.onPlayerDonePlaying(playerInfo.id, message, playResult)) return;
             break;
         }
 
@@ -110,6 +125,7 @@ function handleClientMessage(clientSocket: WebSocket, clientMessage: ServerForwa
             break;
         }
     }
+    acknowledge();
 }
 
 app.listen({ port: config.PORT, host: config.HOST })

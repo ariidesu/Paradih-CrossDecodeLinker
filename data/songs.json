@@ -721,6 +721,259 @@
         }
     },
     {
+        "songId": "s/beyondthetimeline",
+        "title": "タイムラインの向こう",
+        "bpm": "173",
+        "genre": "Hybrid Pop",
+        "composer": "SADA 2Futureanthem feat. せいら",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 12,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10.5,
+            "massive": 14.2,
+            "reboot": 15
+        }
+    },
+    {
+        "songId": "s/singaloud",
+        "title": "SING A LOUD",
+        "bpm": "170",
+        "genre": "ROCK",
+        "composer": "Tatsh feat. 佐伯伊織",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 12,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11,
+            "massive": 14.7
+        }
+    },
+    {
+        "songId": "s/yumenomamono",
+        "title": "ゆめのまもの",
+        "bpm": "190",
+        "genre": "DREAM CHASER",
+        "composer": "ルゼ × ゆめゆめ feat. 甘暦 × 小宮真央",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 12,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12.5,
+            "massive": 15.9
+        }
+    },
+    {
+        "songId": "s/shishunkiaisyndrome",
+        "title": "思春期AI Syndrome",
+        "bpm": "182",
+        "genre": "Hyper Idol Pop",
+        "composer": "technoplanet feat. 木下珠子",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 12,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 13.4,
+            "massive": 16.5
+        }
+    },
+    {
+        "songId": "s/bang",
+        "title": "BANG!",
+        "bpm": "128",
+        "genre": "FUTURE HOUSE",
+        "composer": "Shoichiro Hirata feat. Sana",
+        "illustrator": "Mika Pikazo",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 8.5,
+            "massive": 14.6
+        }
+    },
+    {
+        "songId": "s/oblivio",
+        "title": "Oblivio",
+        "bpm": "133",
+        "genre": "Trance",
+        "composer": "Nhato",
+        "illustrator": "12d",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10.5,
+            "massive": 15.1
+        }
+    },
+    {
+        "songId": "s/lingeringsouls",
+        "title": "Lingering Souls",
+        "bpm": "100",
+        "genre": "Melodic Midtempo",
+        "composer": "void (Mournfinale) feat. AKA",
+        "illustrator": "風間雷太",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 2,
+            "invaded": 11.5,
+            "massive": 15.9
+        }
+    },
+    {
+        "songId": "s/oceanus",
+        "title": "Ωκεανος",
+        "bpm": "80-196",
+        "genre": "piano music",
+        "composer": "cosMo@暴走P",
+        "illustrator": "憂",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12,
+            "massive": 16
+        }
+    },
+    {
+        "songId": "s/worlddevotion",
+        "title": "WORLDDEVOTION",
+        "bpm": "175",
+        "genre": "ARTCORE / NEO DIGITAL FUTURE",
+        "composer": "Blacklolita",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 8,
+            "invaded": 13.7,
+            "massive": 16.7
+        }
+    },
+    {
+        "songId": "s/veritas",
+        "title": "Veritas",
+        "bpm": "135",
+        "genre": "Trance",
+        "composer": "Nhato & Taishi",
+        "illustrator": "12d",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 4,
+            "invaded": 10,
+            "massive": 14.9
+        }
+    },
+    {
+        "songId": "s/beyondyourwords",
+        "title": "Beyond Your Words",
+        "bpm": "178",
+        "genre": "Orchestral Uptempo",
+        "composer": "Sad Keyboard Guy feat. vally.exe",
+        "illustrator": "usi",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 10.5,
+            "massive": 15.5
+        }
+    },
+    {
+        "songId": "s/tuneyourbasstoours",
+        "title": "Tune your bass to ours",
+        "bpm": "175",
+        "genre": "Drum & Bass",
+        "composer": "Ryo Arue",
+        "illustrator": "Hanamori Hiro",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 5,
+            "invaded": 11,
+            "massive": 15.8
+        }
+    },
+    {
+        "songId": "s/dbirth",
+        "title": "D-Birth",
+        "bpm": "187",
+        "genre": "Artcore",
+        "composer": "Sakuzyo (Violin: Katali)",
+        "illustrator": "Tomoyuki Arima",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 6,
+            "invaded": 12.5,
+            "massive": 16.1
+        }
+    },
+    {
+        "songId": "s/noctiluca",
+        "title": "Noctiluca",
+        "bpm": "200",
+        "genre": "ART CORE",
+        "composer": "xi",
+        "illustrator": "U11",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": -1
+        },
+        "charts": {
+            "detected": 7,
+            "invaded": 13.6,
+            "massive": 16.6
+        }
+    },
+    {
         "songId": "s/phasebreak",
         "title": "PHASEBREAK",
         "bpm": "185",
@@ -4830,7 +5083,8 @@
         "charts": {
             "detected": 6,
             "invaded": 11,
-            "massive": 16.1
+            "massive": 16.1,
+            "reboot": 16.4
         }
     },
     {
@@ -6078,6 +6332,24 @@
         }
     },
     {
+        "songId": "s/cryogenic",
+        "title": "Cryogenic",
+        "bpm": "145",
+        "genre": "Game Music",
+        "composer": "Camellia ft. Petra Gurin",
+        "illustrator": "アオノアオ + Vormis.",
+        "version": {
+            "x": 4,
+            "y": 11,
+            "z": 1
+        },
+        "charts": {
+            "detected": 3,
+            "invaded": 9.5,
+            "massive": 15.5
+        }
+    },
+    {
         "songId": "s/subterraneanblastoff",
         "title": "Subterranean Blastoff",
         "bpm": "195",
@@ -6111,7 +6383,8 @@
         "charts": {
             "detected": 5,
             "invaded": 9,
-            "massive": 12.5
+            "massive": 12.5,
+            "reboot": 15.3
         }
     },
     {
